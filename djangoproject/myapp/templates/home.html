@@ -5,13 +5,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>중간지점 찾기</h1>
 
-    <!-- 지도 담을 영역 생성 -->
-    <div id="map" style="width:800px;height:600px;"></div>
-    <div id="clickLatlng">
+    <h1>HOME</h1>
+    <div class = "button">
+      <input type="button" onclick="count('plus')" value="+"/>
+      <input type="button" onclick="count('minus')" value="-"/>
+      <div id="result">0</div>
+
+
+      <input type="submit" onclick="finalCount()">
+
     </div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0c9d924e8ab589125cdf04e2f6bcf298"></script>
-	<script type="text/javascript" src="../static/js/getmap.js"></script>
+    
+    <script type="text/javascript" src="../static/js/home.js"></script>
+    <script type="text/javascript" src="../static/js/getmap.js"></script>
 </body>
 </html>
