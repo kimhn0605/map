@@ -7,18 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>중간 지점 찾기</h1>
-
+    <div class = "mapTitle">
+        <h1>중간 지점 찾기</h1>
+    </div>
+   
     <!-- 지도 생성 -->
     <span>
-        <div id="map" style="top : 30px; width:75%; height:90vh;"></div>
+        <div id="map" style="top : 30px; width:65%; height:80vh; left : 130px; "></div>
         <div>
             <div id="menu_wrap" class="bg_white">
                 <div class="option">
                     <div>
                         <form onsubmit="searchPlaces(); return false;">
                            <h2> 키워드 : <input type="text" value="" id="keyword" size="20"> </h3>
-                            <button class="btn_1" style="height:30px; width:100px;" type="submit">검색하기</button> 
+                            <button class="btn_1" type="submit">검색하기</button> 
                         </form>
                     </div>
                 </div>
@@ -32,19 +34,19 @@
         <div class = "parent">
             <div class = "child">
                 <ul>
-                    <li id = "user1">user_1</li>
-                    <li id = "user2">user_2</li>
-                    <li id = "user3">user_3</li>
-                    <li id = "user4">user_4</li>
-                    <li id = "user5">user_5</li>
-                    <li id = "user6">user_6</li>
+                    <li id = "user1"></li>
+                    <li id = "user2"></li>
+                    <li id = "user3"></li>
+                    <li id = "user4"></li>
+                    <li id = "user5"></li>
+                    <li id = "user6"></li>
                 </ul>
             </div>
     
         </div>
     
     </div>
-    <span id="display">0</span>
+    <span id="display" style="display: none;">0</span>
 
     </div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0c9d924e8ab589125cdf04e2f6bcf298&libraries=services"></script>

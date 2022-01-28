@@ -101,25 +101,65 @@ function displayPlaces(places) {
 
 		// ---------------------------------------- 기존 코드에서 수정한 곳
 		(function (marker, title) {
+			user1Element = document.getElementById("user1");
+			user2Element = document.getElementById("user2");
+			user3Element = document.getElementById("user3");
+			user4Element = document.getElementById("user4");
+			user5Element = document.getElementById("user5");
+			user6Element = document.getElementById("user6");
+
 			// 마커 클릭했을 때
 
 			kakao.maps.event.addListener(marker, "click", function () {
 				if (confirm("이 장소로 선택하시겠습니까?") == true) {
-					console.log(marker.n);
+					// console.log("위경도값 : ", marker.n);
 					latlng[title] = marker.n;
+
+					// 클릭한 마커 위치 각 유저별 화면에 출력
+					if (user1Element.innerText === "") {
+						user1Element.innerHTML = Object.keys(latlng)[0];
+					} else if (user2Element.innerText === "") {
+						user2Element.innerHTML = Object.keys(latlng)[1];
+					} else if (user3Element.innerText === "") {
+						user3Element.innerHTML = Object.keys(latlng)[2];
+					} else if (user4Element.innerText === "") {
+						user4Element.innerHTML = Object.keys(latlng)[3];
+					} else if (user5Element.innerText === "") {
+						user5Element.innerHTML = Object.keys(latlng)[4];
+					} else if (user6Element.innerText === "") {
+						user6Element.innerHTML = Object.keys(latlng)[5];
+					}
 				}
 				console.log("총 개수", Object.keys(latlng).length);
+				console.log("장소 배열", latlng);
 			});
 
 			// 목록 선택했을 때
 			itemEl.onclick = function () {
 				if (confirm("이 장소로 선택하시겠습니까?") == true) {
-					console.log(marker.n);
+					// console.log("위경도값 : ", marker.n);
 					latlng[title] = marker.n;
+
+					// 클릭한 마커 위치 각 유저별 화면에 출력
+					if (user1Element.innerText === "") {
+						user1Element.innerHTML = Object.keys(latlng)[0];
+					} else if (user2Element.innerText === "") {
+						user2Element.innerHTML = Object.keys(latlng)[1];
+					} else if (user3Element.innerText === "") {
+						user3Element.innerHTML = Object.keys(latlng)[2];
+					} else if (user4Element.innerText === "") {
+						user4Element.innerHTML = Object.keys(latlng)[3];
+					} else if (user5Element.innerText === "") {
+						user5Element.innerHTML = Object.keys(latlng)[4];
+					} else if (user6Element.innerText === "") {
+						user6Element.innerHTML = Object.keys(latlng)[5];
+					}
 				}
 				console.log("총 개수", Object.keys(latlng).length);
+				console.log("장소 배열", latlng);
 			};
 		})(marker, places[i].place_name);
+
 		// ---------------------------------------------------------
 
 		fragment.appendChild(itemEl);
@@ -265,7 +305,7 @@ document.getElementById("display").innerHTML = people;
 
 // 브라우저에 결과를 출력할 곳의 element 가져오기
 const displayElement = document.getElementById("display");
-console.log(displayElement.innerHTML);
+console.log("인원 수 : ", displayElement.innerHTML);
 
 // ---------------------------------------
 // 인원수만큼 장소 선택창 띄우기
