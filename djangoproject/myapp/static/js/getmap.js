@@ -314,23 +314,41 @@ var user4 = document.getElementById("user4");
 var user5 = document.getElementById("user5");
 var user6 = document.getElementById("user6");
 
+var text3 = document.getElementById("text3");
+var text4 = document.getElementById("text4");
+var text5 = document.getElementById("text5");
+var text6 = document.getElementById("text6");
+
 switch (people) {
 	case "2":
 		user3.style.display = "none";
 		user4.style.display = "none";
 		user5.style.display = "none";
 		user6.style.display = "none";
+
+		text3.style.display = "none";
+		text4.style.display = "none";
+		text5.style.display = "none";
+		text6.style.display = "none";
 		break;
 	case "3":
 		user4.style.display = "none";
 		user5.style.display = "none";
 		user6.style.display = "none";
+
+		text4.style.display = "none";
+		text5.style.display = "none";
+		text6.style.display = "none";
 		break;
 	case "4":
 		user5.style.display = "none";
 		user6.style.display = "none";
+
+		text5.style.display = "none";
+		text6.style.display = "none";
 		break;
 	case "5":
 		user6.style.display = "none";
+		text6.style.display = "none";
 		break;
 }
