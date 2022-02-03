@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     
     <link rel="stylesheet" href="../static/css/map.css?after">
-    <title>Document</title>
+    <title>Map</title>
 </head>
 <body>
     <div class = "mapTitle">
-        <h1> &#127919; 중간 지점 찾기</h1>
+        <h1><a href="../">&#127919; 중간 지점 찾기</a></h1>
     </div>
    
     <!-- 지도 생성 -->
@@ -19,7 +19,7 @@
                 <div class="option">
                     <div>
                         <form onsubmit="searchPlaces(); return false;">
-                           <h2> 키워드 : <input type="text" value="" id="keyword" size="20"> </h3>
+                            <h2> 키워드 : <input type="text" value="" id="keyword" size="20"> </h3>
                             <button class="btn_1" type="submit">검색하기</button> 
                         </form>
                     </div>
@@ -64,12 +64,9 @@
     <span id="display" style="display: none;">0</span>
 
     </div>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=08d5ff71604f8441fcec2abeec6e8058&libraries=services"></script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=08d5ff71604f8441fcec2abeec6e8058"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0c9d924e8ab589125cdf04e2f6bcf298&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0c9d924e8ab589125cdf04e2f6bcf298"></script>
 	<script type="text/javascript" src="../static/js/getmap.js"></script>
-    <!-- 마커 직접 찍기
-        <script type="text/javascript" src="../static/js/marker.js"></script>
-    -->
 
 </body>
 </html>

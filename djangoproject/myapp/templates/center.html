@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Center</title>
 
-    <link rel="stylesheet" href="../static/css/center.css">
-</head>
-<body>
-    <div class = "mapTitle">
-        <h1> &#127919; 중간 지점 찾기</h1>
-    </div>
-    <h3>중간지점으로부터 1km내에 있는 음식점, 카페, 지하철역입니다.</h3>   
-    <div class="map_wrap">
-        <div id="map" style="width:100%;height:650px;position:relative;overflow:hidden;"></div>
-        <ul id="category"> 
-            <li id="BK9" data-order="0"> 
-                <span class="category_bg bank"></span>
-                은행
-            </li>       
-            <li id="MT1" data-order="1"> 
-                <span class="category_bg mart"></span>
-                마트
-            </li>  
-            <li id="PM9" data-order="2"> 
-                <span class="category_bg pharmacy"></span>
-                약국
-            </li>  
-            <li id="FD6" data-order="3"> 
-                <span class="category_bg food"></span>
-                음식점
-            </li>  
-            <li id="CE7" data-order="4"> 
-                <span class="category_bg cafe"></span>
-                카페
-            </li>  
-            <li id="SW8" data-order="5"> 
-                <span class="category_bg subway"></span>
-                지하철역
-            </li>      
-        </ul>
-    </div>
+		<link rel="stylesheet" href="../static/css/center.css" />
+	</head>
+	<body>
+		<div class="mapTitle">
+			<h1><a href="../">&#127919; 중간 지점 찾기</a></h1>
+		</div>
+		<br />
+		<h3>중간지점으로부터 1km내에 있는 음식점, 카페, 지하철역입니다.</h3>
 
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=08d5ff71604f8441fcec2abeec6e8058&libraries=services"></script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=08d5ff71604f8441fcec2abeec6e8058"></script>
-    <script type="text/javascript" src="../static/js/center.js"></script>
-</body>
+		<div class="map_wrap">
+			<div
+				id="map"
+				style="width: 100%; height: 80vh; position: relative; overflow: hidden"
+			></div>
+			<ul id="category">
+				<li id="BK9" data-order="0">
+					<span class="category_bg bank"></span>
+					은행
+				</li>
+				<li id="MT1" data-order="1">
+					<span class="category_bg mart"></span>
+					마트
+				</li>
+				<li id="PM9" data-order="2">
+					<span class="category_bg pharmacy"></span>
+					약국
+				</li>
+				<li id="OL7" data-order="3">
+					<span class="category_bg oil"></span>
+					주유소
+				</li>
+				<li id="CE7" data-order="4">
+					<span class="category_bg cafe"></span>
+					카페
+				</li>
+				<li id="CS2" data-order="5">
+					<span class="category_bg store"></span>
+					편의점
+				</li>
+			</ul>
+		</div>
+
+		<script
+			type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0c9d924e8ab589125cdf04e2f6bcf298&libraries=services"
+		></script>
+		<script
+			type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0c9d924e8ab589125cdf04e2f6bcf298"
+		></script>
+		<script type="text/javascript" src="../static/js/center.js"></script>
+	</body>
 </html>
