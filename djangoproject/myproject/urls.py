@@ -22,5 +22,4 @@ urlpatterns = [
     path('', home, name='home'),
     path('map/', map, name='map'),
     path('center/', center, name='center'),
-    #path('map/center/', center, name='center'),
 ]
