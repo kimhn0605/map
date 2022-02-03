@@ -12,6 +12,9 @@ var latlng = {};
 // 중간지점 변수 
 var centerLaMa;
 
+// 선택된 장소 개수
+var click = 0;
+
 var mapContainer = document.getElementById("map"), // 지도를 표시할 div
 	mapOption = {
 		center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -118,24 +121,31 @@ function displayPlaces(places) {
 
 			// 마커 클릭했을 때
 			kakao.maps.event.addListener(marker, "click", function () {
-				if (confirm("이 장소로 선택하시겠습니까?") == true) {
-					console.log("위경도값 : ", marker.getPosition());
-					latlng[title] = marker.getPosition();
-					marker.setImage(clickImage);
+				if(click >= people){
+					alert('이미 모든 장소를 선택했습니다.');
+				}
 
-					// 클릭한 마커 위치 각 유저별 화면에 출력
-					if (user1Element.innerText === "") {
-						user1Element.innerHTML = Object.keys(latlng)[0];
-					} else if (user2Element.innerText === "") {
-						user2Element.innerHTML = Object.keys(latlng)[1];
-					} else if (user3Element.innerText === "") {
-						user3Element.innerHTML = Object.keys(latlng)[2];
-					} else if (user4Element.innerText === "") {
-						user4Element.innerHTML = Object.keys(latlng)[3];
-					} else if (user5Element.innerText === "") {
-						user5Element.innerHTML = Object.keys(latlng)[4];
-					} else if (user6Element.innerText === "") {
-						user6Element.innerHTML = Object.keys(latlng)[5];
+				else if(click < people) {
+					if (confirm("이 장소로 선택하시겠습니까?") == true) {
+						click += 1;
+						console.log("위경도값 : ", marker.getPosition());
+						latlng[title] = marker.getPosition();
+						marker.setImage(clickImage);
+
+						// 클릭한 마커 위치 각 유저별 화면에 출력
+						if (user1Element.innerText === "") {
+							user1Element.innerHTML = Object.keys(latlng)[0];
+						} else if (user2Element.innerText === "") {
+							user2Element.innerHTML = Object.keys(latlng)[1];
+						} else if (user3Element.innerText === "") {
+							user3Element.innerHTML = Object.keys(latlng)[2];
+						} else if (user4Element.innerText === "") {
+							user4Element.innerHTML = Object.keys(latlng)[3];
+						} else if (user5Element.innerText === "") {
+							user5Element.innerHTML = Object.keys(latlng)[4];
+						} else if (user6Element.innerText === "") {
+							user6Element.innerHTML = Object.keys(latlng)[5];
+						}
 					}
 				}
 				console.log("총 개수", Object.keys(latlng).length);
@@ -150,24 +160,31 @@ function displayPlaces(places) {
 
 			// 목록 선택했을 때
 			itemEl.onclick = function () {
-				if (confirm("이 장소로 선택하시겠습니까?") == true) {
-					//console.log("위경도값 : ", marker.n);
-					latlng[title] = marker.getPosition();
-					marker.setImage(clickImage);
+				if(click >= people){
+					alert('이미 모든 장소를 선택했습니다.');
+				}
 
-					// 클릭한 마커 위치 각 유저별 화면에 출력
-					if (user1Element.innerText === "") {
-						user1Element.innerHTML = Object.keys(latlng)[0];
-					} else if (user2Element.innerText === "") {
-						user2Element.innerHTML = Object.keys(latlng)[1];
-					} else if (user3Element.innerText === "") {
-						user3Element.innerHTML = Object.keys(latlng)[2];
-					} else if (user4Element.innerText === "") {
-						user4Element.innerHTML = Object.keys(latlng)[3];
-					} else if (user5Element.innerText === "") {
-						user5Element.innerHTML = Object.keys(latlng)[4];
-					} else if (user6Element.innerText === "") {
-						user6Element.innerHTML = Object.keys(latlng)[5];
+				else if(click < people) {
+					if (confirm("이 장소로 선택하시겠습니까?") == true) {
+						click += 1;
+						//console.log("위경도값 : ", marker.n);
+						latlng[title] = marker.getPosition();
+						marker.setImage(clickImage);
+
+						// 클릭한 마커 위치 각 유저별 화면에 출력
+						if (user1Element.innerText === "") {
+							user1Element.innerHTML = Object.keys(latlng)[0];
+						} else if (user2Element.innerText === "") {
+							user2Element.innerHTML = Object.keys(latlng)[1];
+						} else if (user3Element.innerText === "") {
+							user3Element.innerHTML = Object.keys(latlng)[2];
+						} else if (user4Element.innerText === "") {
+							user4Element.innerHTML = Object.keys(latlng)[3];
+						} else if (user5Element.innerText === "") {
+							user5Element.innerHTML = Object.keys(latlng)[4];
+						} else if (user6Element.innerText === "") {
+							user6Element.innerHTML = Object.keys(latlng)[5];
+						}
 					}
 				}
 				console.log("총 개수", Object.keys(latlng).length);
@@ -334,25 +351,43 @@ var user4 = document.getElementById("user4");
 var user5 = document.getElementById("user5");
 var user6 = document.getElementById("user6");
 
+var text3 = document.getElementById("text3");
+var text4 = document.getElementById("text4");
+var text5 = document.getElementById("text5");
+var text6 = document.getElementById("text6");
+
 switch (people) {
-	case "2":
-		user3.style.display = "none";
-		user4.style.display = "none";
-		user5.style.display = "none";
-		user6.style.display = "none";
-		break;
-	case "3":
-		user4.style.display = "none";
-		user5.style.display = "none";
-		user6.style.display = "none";
-		break;
-	case "4":
-		user5.style.display = "none";
-		user6.style.display = "none";
-		break;
-	case "5":
-		user6.style.display = "none";
-		break;
+   case "2":
+      user3.style.display = "none";
+      user4.style.display = "none";
+      user5.style.display = "none";
+      user6.style.display = "none";
+
+      text3.style.display = "none";
+      text4.style.display = "none";
+      text5.style.display = "none";
+      text6.style.display = "none";
+      break;
+   case "3":
+      user4.style.display = "none";
+      user5.style.display = "none";
+      user6.style.display = "none";
+
+      text4.style.display = "none";
+      text5.style.display = "none";
+      text6.style.display = "none";
+      break;
+   case "4":
+      user5.style.display = "none";
+      user6.style.display = "none";
+
+      text5.style.display = "none";
+      text6.style.display = "none";
+      break;
+   case "5":
+      user6.style.display = "none";
+      text6.style.display = "none";
+      break;
 }
 
 
@@ -573,5 +608,12 @@ function categoryplace(){
 
 //---------------------export---------------------------
 //export const centerLaMa;
-module.exports = { centerLaMa };
+//export default { centerLaMa };
+/*
+export function getCenterLa() {
+	return centerLaMa['La'];
+}
 
+export function getCenterMa() {
+	return centerLaMa['Ma'];
+}*/

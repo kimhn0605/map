@@ -1,6 +1,5 @@
 //-------------------import-----------------
-//import {centerLaMa} from './getmap'
-const { centerLaMa } = require('./getmap');
+
 //------------------------------------------
 
 // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
@@ -8,13 +7,13 @@ var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
     contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
     markers = [], // 마커를 담을 배열입니다
     currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
- 
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
-        center: new kakao.maps.LatLng(centerLaMa['Ma'], centerLaMa['La']), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };  
-
+    
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
@@ -61,7 +60,7 @@ function searchPlaces() {
     
     places.categorySearch(currCategory, placesSearchCB, 
         {
-            location: new kakao.maps.LatLng(centerLaMa['Ma'], centerLaMa['La']),//중심좌표 설정
+            location: new kakao.maps.LatLng(37.566826, 126.9786567),//중심좌표 설정
             radius:1000,//중심좌표에서 1000m까지만 검색(map의 level을 조정하면 바뀜)
             size:10, //한 페이지에 보여질 개수. 기본값은 15, 1~15까지 가능
         }
