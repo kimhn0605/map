@@ -8,3 +8,6 @@ def home(request):
 
 def map(request):
     return render(request, 'map.html')
+
+def center(request):
+    return render(request, 'center.html')

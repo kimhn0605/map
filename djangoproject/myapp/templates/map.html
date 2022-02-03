@@ -53,15 +53,23 @@
                     <li id = "user6"></li>
                 </ul>
             </div>
-    
+            <button class="button" type="button" onclick="Personalmarker()">직접찍기</button>
+            <button class="button" type="submit" onclick="centerMarker()">중간지점찾기</button>
+            <button class="button" type="submit" onclick="location.href='http://127.0.0.1:8000/center/'">주변찾기</button>
+            
+
         </div>
     
     </div>
     <span id="display" style="display: none;">0</span>
 
     </div>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0c9d924e8ab589125cdf04e2f6bcf298&libraries=services"></script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0c9d924e8ab589125cdf04e2f6bcf298"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=08d5ff71604f8441fcec2abeec6e8058&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=08d5ff71604f8441fcec2abeec6e8058"></script>
 	<script type="text/javascript" src="../static/js/getmap.js"></script>
+    <!-- 마커 직접 찍기
+        <script type="text/javascript" src="../static/js/marker.js"></script>
+    -->
+
 </body>
 </html>
