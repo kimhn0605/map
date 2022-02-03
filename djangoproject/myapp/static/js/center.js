@@ -11,7 +11,6 @@ var placeOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 }),
 var mapContainer = document.getElementById("map"), // 지도를 표시할 div
 	mapOption = {
 		center: new kakao.maps.LatLng(ma, la), // 지도의 중심좌표
-		draggable: false, // 지도 이동 및 확대/축소 방지
 		level: 5, // 지도의 확대 레벨
 	};
 
@@ -60,7 +59,9 @@ function searchPlaces() {
 	removeMarker();
 
 	ps.categorySearch(currCategory, placesSearchCB, {
-		useMapBounds: true,
+        location: new kakao.maps.LatLng(ma, la),//중심좌표 설정
+        radius:1000,//중심좌표에서 1000m까지만 검색(map의 level을 조정하면 바뀜)
+        size:10, //한 페이지에 보여질 개수. 기본값은 15, 1~15까지 가능
 	});
 }
 

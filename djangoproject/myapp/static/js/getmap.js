@@ -411,7 +411,7 @@ function centerMarker() {
 	// 마커 이미지 정보를 가지고 있는 마커 이미지 생성 (중간 지점 마커 - 붉은색)
 	var imageSrc =
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS494-ZX-JNy3fRkdGYo8RZyn7SPSKG5qdywA&usqp=CAU", // 마커 이미지 주소
-		imageSize = new kakao.maps.Size(64, 69), // 마커 이미지 크기
+		imageSize = new kakao.maps.Size(30, 45), // 마커 이미지 크기
 		imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커 이미지 옵션 (마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정)
 
 	var markerImage = new kakao.maps.MarkerImage(
