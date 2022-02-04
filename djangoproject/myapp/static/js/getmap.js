@@ -8,6 +8,9 @@ var clickImage = new daum.maps.MarkerImage(
 // 마커를 담을 배열
 var markers = [];
 
+// 선택된 마커를 담을 배열
+var selected_markers = [];
+
 // 마커의 위/경도를 담을 객체
 var latlng = {};
 
@@ -128,7 +131,11 @@ function displayPlaces(places) {
 				} else if (click < people) {
 					if (confirm("이 장소로 선택하시겠습니까?") == true) {
 						click += 1;
-						//console.log("위경도값 : ", marker.n);
+						var index = markers.indexOf(marker); // 선택된 마커 기존 배열에서 삭제
+						if (index > -1) { // 선택된 마커 기존 배열에서 삭제
+							markers.splice(index, 1);
+						}
+						selected_markers.push(marker); // 선택된 마커를 새로운 배열에 추가
 						latlng[title] = marker.getPosition();
 						marker.setImage(clickImage);
 
@@ -171,7 +178,11 @@ function displayPlaces(places) {
 				} else if (click < people) {
 					if (confirm("이 장소로 선택하시겠습니까?") == true) {
 						click += 1;
-						//console.log("위경도값 : ", marker.n);
+						var index = markers.indexOf(marker); // 선택된 마커 기존 배열에서 삭제
+						if (index > -1) { // 선택된 마커 기존 배열에서 삭제
+							markers.splice(index, 1);
+						}
+						selected_markers.push(marker); // 선택된 마커를 새로운 배열에 추가
 						latlng[title] = marker.getPosition();
 						marker.setImage(clickImage);
 
@@ -268,6 +279,7 @@ function addMarker(position, idx) {
 
 	marker.setMap(map); // 지도 위에 마커를 표출합니다
 	markers.push(marker); // 배열에 생성된 마커를 추가합니다
+	
 
 	return marker;
 }
