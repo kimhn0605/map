@@ -436,7 +436,7 @@ function centerMarker() {
 		imageOption
 	);
 
-	// 마커를 생성합니다markerPosition
+	// 마커를 생성합니다
 	var centerMarker = new kakao.maps.Marker({
 		position: markerPosition,
 		image: markerImage, // 마커 이미지 새로 설정

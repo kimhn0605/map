@@ -11,7 +11,7 @@ var placeOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 }),
 var mapContainer = document.getElementById("map"), // 지도를 표시할 div
 	mapOption = {
 		center: new kakao.maps.LatLng(ma, la), // 지도의 중심좌표
-		level: 3, // 지도의 확대 레벨
+		level: 4, // 지도의 확대 레벨
 	};
 
 // 지도를 생성합니다
@@ -49,10 +49,10 @@ centerMarker.setMap(map);
 //----------------------------카테고리별 장소 마커 생성---------------------------------
 // 이미지 주소 배열 선언
 var ImgSrc = [
-    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552186.png?token=exp=1643944667~hmac=cb090138dbb5e81ed4e9edd94d60ede1', //음식점
-    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552173.png?token=exp=1643941537~hmac=69b16708399c75faafa7b2bc73f902e6', // 카페
-    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552191.png?token=exp=1643940605~hmac=cedab94f5f8865f97c6bf0e9fc8be666', // 지하철
-    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552172.png?token=exp=1643941581~hmac=d6de4517956c7257394552b951078b55', // 관광지
+    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552186.png?token=exp=1643956632~hmac=42e773253a1f394b2d6ada2c4e855178', //음식점
+    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552173.png?token=exp=1643956632~hmac=40a9364b2f50c0b3f62bc76807afd260', // 카페
+    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552191.png?token=exp=1643956632~hmac=5f30be2be90cb85fd08accc62b6d266a', // 지하철
+    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552172.png?token=exp=1643956632~hmac=87165a6f23e642a30853dcfbf8535c63', // 관광지
 ];
 
 // 장소 검색 객체를 생성합니다
@@ -247,4 +247,9 @@ function changeCategoryClass(el) {
 	if (el) {
 		el.className = "on";
 	}
+}
+
+// ------------------------다시하기 눌렀을 때 Home으로 돌아가는 함수 선언-------------------------
+function gobackHome(){
+	location.replace('/');
 }
