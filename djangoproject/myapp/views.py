@@ -11,3 +11,4 @@ def map(request):
 
 def center(request):
     return render(request, 'center.html')
+

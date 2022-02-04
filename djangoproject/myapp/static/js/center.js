@@ -11,11 +11,49 @@ var placeOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 }),
 var mapContainer = document.getElementById("map"), // 지도를 표시할 div
 	mapOption = {
 		center: new kakao.maps.LatLng(ma, la), // 지도의 중심좌표
-		level: 5, // 지도의 확대 레벨
+		level: 3, // 지도의 확대 레벨
 	};
 
 // 지도를 생성합니다
 var map = new kakao.maps.Map(mapContainer, mapOption);
+
+//-------------------------------중간지점 마커 생성----------------------------------------
+// 마커 이미지 정보를 가지고 있는 마커 이미지 생성 (중간 지점 마커 - 붉은색)
+var imageSrc =
+			"http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites.png", // 마커 이미지 주소
+		imageSize = new kakao.maps.Size(48, 85), // 마커 이미지 크기
+		imageOption = {
+			spriteSize : new kakao.maps.Size(50, 533), // 스프라이트 원본 이미지의 크기
+            spriteOrigin : new kakao.maps.Point(0, 400), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+            //offset: new kakao.maps.Point(27, 69) // 마커 좌표에 일치시킬 이미지 내에서의 좌표 (13, 37)
+		};
+
+var markerImage = new kakao.maps.MarkerImage(
+	imageSrc,
+	imageSize,
+	imageOption
+);
+
+//마커의 위치 정보 생성
+var markerPosition = new kakao.maps.LatLng(ma, la);
+
+// 마커를 생성합니다
+var centerMarker = new kakao.maps.Marker({
+position: markerPosition,
+image: markerImage, // 마커 이미지 새로 설정
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+centerMarker.setMap(map);
+
+//----------------------------카테고리별 장소 마커 생성---------------------------------
+// 이미지 주소 배열 선언
+var ImgSrc = [
+    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552186.png?token=exp=1643944667~hmac=cb090138dbb5e81ed4e9edd94d60ede1', //음식점
+    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552173.png?token=exp=1643941537~hmac=69b16708399c75faafa7b2bc73f902e6', // 카페
+    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552191.png?token=exp=1643940605~hmac=cedab94f5f8865f97c6bf0e9fc8be666', // 지하철
+    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552172.png?token=exp=1643941581~hmac=d6de4517956c7257394552b951078b55', // 관광지
+];
 
 // 장소 검색 객체를 생성합니다
 var ps = new kakao.maps.services.Places(map);
@@ -102,19 +140,12 @@ function displayPlaces(places) {
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 function addMarker(position, order) {
-	var imageSrc =
-			"https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png", // 마커 이미지 url, 스프라이트 이미지를 씁니다
-		imageSize = new kakao.maps.Size(27, 28), // 마커 이미지의 크기
-		imgOptions = {
-			spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
-			spriteOrigin: new kakao.maps.Point(46, order * 36), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-			offset: new kakao.maps.Point(11, 28), // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-		},
-		markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+	var imageSize = new kakao.maps.Size(50, 50),  // 마커 이미지의 크기
+		markerImage = new kakao.maps.MarkerImage(ImgSrc[order], imageSize),
 		marker = new kakao.maps.Marker({
-			position: position, // 마커의 위치
-			image: markerImage,
-		});
+				position: position, // 마커의 위치
+				image: markerImage 
+			});
 
 	marker.setMap(map); // 지도 위에 마커를 표출합니다
 	markers.push(marker); // 배열에 생성된 마커를 추가합니다

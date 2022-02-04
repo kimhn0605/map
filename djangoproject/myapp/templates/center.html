@@ -1,52 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Center</title>
-
-		<link rel="stylesheet" href="../static/css/center.css" />
-	</head>
-	<body>
-		<div class="mapTitle">
-			<h1><a href="../">&#127919; 중간 지점 찾기</a></h1>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>카테고리별 장소 검색하기</title>
+	<link rel="stylesheet" href="../static/css/center.css">
+    
+</head>
+<body>
+    <div class="map_wrap">
+        <div id="map" style="width:100%;height:500px;position:relative;overflow:hidden;"></div>
+        <ul id="category">
+            <li id="FD6" data-order="0"> 
+                <span class="category_bg_food"></span>
+                음식점
+            </li>       
+            <li id="CE7" data-order="1"> 
+                <span class="category_bg_cafe"></span>
+                카페
+            </li>  
+            <li id="SW8" data-order="2"> 
+                <span class="category_bg_subway"></span>
+                지하철역
+            </li>  
+            <li id="AT4" data-order="3"> 
+                <span class="category_bg_attraction"></span>
+                관광지
+            </li>  
+        </ul>
+		
+		<div> 
+			<button onclick="location.href='/'">다시하기</button> <!--홈으로 이동-->
 		</div>
-		<br />
-		<h3>중간지점으로부터 1km내에 있는 음식점, 카페, 지하철역입니다.</h3>
-
-		<div class="map_wrap">
-			<div
-				id="map"
-				style="width: 100%; height: 80vh; position: relative; overflow: hidden"
-			></div>
-			<ul id="category">
-				<li id="BK9" data-order="0">
-					<span class="category_bg bank"></span>
-					은행
-				</li>
-				<li id="MT1" data-order="1">
-					<span class="category_bg mart"></span>
-					마트
-				</li>
-				<li id="PM9" data-order="2">
-					<span class="category_bg pharmacy"></span>
-					약국
-				</li>
-				<li id="OL7" data-order="3">
-					<span class="category_bg oil"></span>
-					주유소
-				</li>
-				<li id="CE7" data-order="4">
-					<span class="category_bg cafe"></span>
-					카페
-				</li>
-				<li id="CS2" data-order="5">
-					<span class="category_bg store"></span>
-					편의점
-				</li>
-			</ul>
-		</div>
+	</div>
+    </div>
+			
+		
 
 		<script
 			type="text/javascript"
