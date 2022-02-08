@@ -20,12 +20,11 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 //-------------------------------중간지점 마커 생성----------------------------------------
 // 마커 이미지 정보를 가지고 있는 마커 이미지 생성 (중간 지점 마커 - 붉은색)
 var imageSrc =
-			"http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites.png", // 마커 이미지 주소
+			'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites.png', // 마커 이미지 주소
 		imageSize = new kakao.maps.Size(48, 85), // 마커 이미지 크기
 		imageOption = {
 			spriteSize : new kakao.maps.Size(50, 533), // 스프라이트 원본 이미지의 크기
             spriteOrigin : new kakao.maps.Point(0, 400), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-            //offset: new kakao.maps.Point(27, 69) // 마커 좌표에 일치시킬 이미지 내에서의 좌표 (13, 37)
 		};
 
 var markerImage = new kakao.maps.MarkerImage(
@@ -49,10 +48,10 @@ centerMarker.setMap(map);
 //----------------------------카테고리별 장소 마커 생성---------------------------------
 // 이미지 주소 배열 선언
 var ImgSrc = [
-    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552186.png?token=exp=1643956632~hmac=42e773253a1f394b2d6ada2c4e855178', //음식점
-    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552173.png?token=exp=1643956632~hmac=40a9364b2f50c0b3f62bc76807afd260', // 카페
-    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552191.png?token=exp=1643956632~hmac=5f30be2be90cb85fd08accc62b6d266a', // 지하철
-    'https://cdn-icons.flaticon.com/png/512/4552/premium/4552172.png?token=exp=1643956632~hmac=87165a6f23e642a30853dcfbf8535c63', // 관광지
+    'https://img.icons8.com/external-soft-fill-juicy-fish/344/external-restaurant-location-pins-soft-fill-soft-fill-juicy-fish.png', //음식점
+    'https://img.icons8.com/external-soft-fill-juicy-fish/344/external-cafe-location-pins-soft-fill-soft-fill-juicy-fish.png', // 카페
+    'https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-caravan-location-pins-soft-fill-soft-fill-juicy-fish.png', // 지하철
+    'https://img.icons8.com/external-soft-fill-juicy-fish/344/external-like-location-pins-soft-fill-soft-fill-juicy-fish.png', // 관광지
 ];
 
 // 장소 검색 객체를 생성합니다
@@ -252,4 +251,27 @@ function changeCategoryClass(el) {
 // ------------------------다시하기 눌렀을 때 Home으로 돌아가는 함수 선언-------------------------
 function gobackHome(){
 	location.replace('/');
+}
+
+//-----------------------------중심좌표 주소 출력-----------------------------------------
+var geocoder = new kakao.maps.services.Geocoder();
+
+searchDetailAddrFromCoords(new kakao.maps.LatLng(ma, la), function(result, status) {
+	if (status === kakao.maps.services.Status.OK) {
+		var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+		detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+		
+		var content = '<div class="bAddr">' +
+						'<span class="centerLatlng_title">중간 지점 법정동 주소정보</span>' + 
+						detailAddr + 
+					'</div>';
+		
+		var resultDiv = document.getElementById('centerLatlng'); 
+			resultDiv.innerHTML = content;
+	}
+});
+
+function searchDetailAddrFromCoords(coords, callback) {
+    // 좌표로 법정동 상세 주소 정보를 요청합니다
+    geocoder.coord2Address(coords.La, coords.Ma, callback);
 }

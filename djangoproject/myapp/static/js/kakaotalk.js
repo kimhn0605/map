@@ -5,9 +5,9 @@ function kakaoLink(){
         objectType: 'feed',
         content: {
             title: '중간지점찾기',
-            description: '우리 중간에는 뭐가 있을까?',
+            description: '우리 중간에서 만나!\n #음식점 #카페 #지하철역 #관광지',
             imageUrl:
-                '../images/중간지점찾기.png',
+                'https://cdn.pixabay.com/photo/2020/02/18/11/02/map-4859139_960_720.png',
             link: {
                 mobileWebUrl: 'http://127.0.0.1:8000/center/',
                 webUrl: 'http://127.0.0.1:8000/center/',

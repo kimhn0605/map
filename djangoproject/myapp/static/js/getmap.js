@@ -153,6 +153,9 @@ function displayPlaces(places) {
 						} else if (user6Element.innerText === "") {
 							user6Element.innerHTML = Object.keys(latlng)[5];
 						}
+
+						//모든 장소가 선택됐을 때 주변 찾기 버튼 활성화
+						categoryBtn();
 					}
 				}
 				console.log("총 개수", Object.keys(latlng).length);
@@ -200,6 +203,9 @@ function displayPlaces(places) {
 						} else if (user6Element.innerText === "") {
 							user6Element.innerHTML = Object.keys(latlng)[5];
 						}
+
+						//모든 장소가 선택됐을 때 주변 찾기 버튼 활성화
+						categoryBtn();
 					}
 				}
 				console.log("총 개수", Object.keys(latlng).length);
@@ -411,40 +417,81 @@ switch (people) {
 
 //-----------------------중점에 마커 찍기-----------------------
 function centerMarker() {
-	// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-	removeMarker();
+	if(click < people){
+		alert("모든 장소를 입력해주세요.");
+	}
+	else if (click >= people) {
+		// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+		removeMarker();
 
-	// 마커가 표시될 위치입니다
-	var markerPosition = new kakao.maps.LatLng(
-		centerLaMa["Ma"],
-		centerLaMa["La"]
-	);
+		// 마커가 표시될 위치입니다
+		var markerPosition = new kakao.maps.LatLng(
+			centerLaMa["Ma"],
+			centerLaMa["La"]
+		);
 
-	// 마커 이미지 정보를 가지고 있는 마커 이미지 생성 (중간 지점 마커 - 붉은색)
-	var imageSrc =
-			"http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites.png", // 마커 이미지 주소
-		imageSize = new kakao.maps.Size(48, 85), // 마커 이미지 크기
-		imageOption = {
-			spriteSize : new kakao.maps.Size(50, 533), // 스프라이트 원본 이미지의 크기
-            spriteOrigin : new kakao.maps.Point(0, 400), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-            //offset: new kakao.maps.Point(27, 69) // 마커 좌표에 일치시킬 이미지 내에서의 좌표 (13, 37)
-		};
+		// 마커 이미지 정보를 가지고 있는 마커 이미지 생성 (중간 지점 마커 - 붉은색)
+		var imageSrc =
+				"http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markers_sprites.png", // 마커 이미지 주소
+			imageSize = new kakao.maps.Size(48, 85), // 마커 이미지 크기
+			imageOption = {
+				spriteSize : new kakao.maps.Size(50, 533), // 스프라이트 원본 이미지의 크기
+    	        spriteOrigin : new kakao.maps.Point(0, 400), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+			};
 
-	var markerImage = new kakao.maps.MarkerImage(
-		imageSrc,
-		imageSize,
-		imageOption
-	);
+		var markerImage = new kakao.maps.MarkerImage(
+			imageSrc,
+			imageSize,
+			imageOption
+		);
 
-	// 마커를 생성합니다
-	var centerMarker = new kakao.maps.Marker({
-		position: markerPosition,
-		image: markerImage, // 마커 이미지 새로 설정
-	});
+		// 마커를 생성합니다
+		var centerMarker = new kakao.maps.Marker({
+			position: markerPosition,
+			image: markerImage, // 마커 이미지 새로 설정
+		});
 
-	// 마커가 지도 위에 표시되도록 설정합니다
-	centerMarker.setMap(map);
+		// 마커가 지도 위에 표시되도록 설정합니다
+		centerMarker.setMap(map);
 
-	// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-	map.setCenter(markerPosition);
+		// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+		map.setCenter(markerPosition);
+
+		//-----------------------------중심좌표 주소 출력-----------------------------------------
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		searchDetailAddrFromCoords(markerPosition, function(result, status) {
+			if (status === kakao.maps.services.Status.OK) {
+				var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+				detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+
+				var content = '<div class="bAddr">' +
+								'<span class="centerLatlng_title">중간 지점 법정동 주소정보</span>' + 
+								detailAddr + 
+							'</div>';
+
+				var resultDiv = document.getElementById('centerLatlng'); 
+					resultDiv.innerHTML = content;
+			}
+		});
+
+		function searchDetailAddrFromCoords(coords, callback) {
+		    // 좌표로 법정동 상세 주소 정보를 요청합니다
+			geocoder.coord2Address(coords.La, coords.Ma, callback);
+		}
+
+	}
+	
 }
+
+//----------------------------주변찾기 버튼 모든 장소 입력됐을 때만 활성화--------------------------------
+function categoryBtn(){
+	var target = document.getElementById('categoryBtn');
+	if (click >= people) {
+		target.disabled = false;
+	}
+	else{
+		target.disabled = true;
+	}
+}
+

@@ -10,6 +10,11 @@
 	height:350px;
 }
 
+.centerLatlng_title {
+	font-weight:bold;
+	display:block;
+}
+
 #category {
 	position:absolute;
 	top:10px;
@@ -55,22 +60,22 @@ egory li:hover {
 }
 
 #category li .category_bg_food {
-    background:url('https://cdn-icons.flaticon.com/png/512/4552/premium/4552186.png?token=exp=1643956632~hmac=42e773253a1f394b2d6ada2c4e855178') no-repeat;
+    background:url('https://img.icons8.com/external-soft-fill-juicy-fish/344/external-restaurant-location-pins-soft-fill-soft-fill-juicy-fish.png') no-repeat;
     background-size: contain;
 }
 
 #category li .category_bg_cafe {
-    background:url('https://cdn-icons.flaticon.com/png/512/4552/premium/4552173.png?token=exp=1643956632~hmac=40a9364b2f50c0b3f62bc76807afd260') no-repeat;
+    background:url('https://img.icons8.com/external-soft-fill-juicy-fish/344/external-cafe-location-pins-soft-fill-soft-fill-juicy-fish.png') no-repeat;
     background-size: contain;
 }
 
 #category li .category_bg_subway {
-    background:url('https://cdn-icons.flaticon.com/png/512/4552/premium/4552191.png?token=exp=1643956632~hmac=5f30be2be90cb85fd08accc62b6d266a') no-repeat;
+    background:url('https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-caravan-location-pins-soft-fill-soft-fill-juicy-fish.png') no-repeat;
     background-size: contain;
 }
 
 #category li .category_bg_attraction {
-    background:url('https://cdn-icons.flaticon.com/png/512/4552/premium/4552172.png?token=exp=1643956632~hmac=87165a6f23e642a30853dcfbf8535c63') no-repeat;
+    background:url('https://img.icons8.com/external-soft-fill-juicy-fish/344/external-like-location-pins-soft-fill-soft-fill-juicy-fish.png') no-repeat;
     background-size: contain;
 }
 

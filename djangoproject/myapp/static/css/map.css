@@ -17,6 +17,11 @@
 	align-items: center;
 }
 
+.centerLatlng_title {
+	font-weight:bold;
+	display:block;
+}
+
 h1 {
 	display: inline;
 }
