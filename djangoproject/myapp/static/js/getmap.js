@@ -34,8 +34,102 @@ var ps = new kakao.maps.services.Places();
 // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
 var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
+// -----------------------최종 인원수 저장 함수---------------------------
+function finalCount() {
+	// 클릭 버튼 누르면 최종 인원수 저장
+
+	// .value 는 div 에 적용 x (input 태그에 적용 o)
+	// HTML 태그 값 가져오려면 .innerHTML 로 가져오는 게 편함
+	var people = document.getElementById("result").innerHTML;
+
+	// 로컬 스토리지에 최종 인원수 저장 (키-값)
+	localStorage.setItem("people", people);
+}
+
+// 최종 인원수 가져오기 (home -> map)
+people = localStorage.getItem("people");
+document.getElementById("display").innerHTML = people;
+
+// 브라우저에 결과를 출력할 곳의 element 가져오기
+const displayElement = document.getElementById("display");
+console.log(displayElement.innerHTML);
+
+// ---------------------------------------
+// 인원수만큼 장소 선택창 띄우기
+var user1 = document.getElementById("user1");
+var user2 = document.getElementById("user2");
+var user3 = document.getElementById("user3");
+var user4 = document.getElementById("user4");
+var user5 = document.getElementById("user5");
+var user6 = document.getElementById("user6");
+
+var text1 = document.getElementById("text1");
+var text2 = document.getElementById("text2");
+var text3 = document.getElementById("text3");
+var text4 = document.getElementById("text4");
+var text5 = document.getElementById("text5");
+var text6 = document.getElementById("text6");
+
+switch (people) {
+	case "2":
+		user1.style.display = "block";
+		user2.style.display = "block";
+
+		text1.style.display = "block";
+		text2.style.display = "block";
+		break;
+	case "3":
+		user1.style.display = "block";
+		user2.style.display = "block";
+		user3.style.display = "block";
+
+		text1.style.display = "block";
+		text2.style.display = "block";
+		text3.style.display = "block";
+		break;
+	case "4":
+		user1.style.display = "block";
+		user2.style.display = "block";
+		user3.style.display = "block";
+		user4.style.display = "block";
+
+		text1.style.display = "block";
+		text2.style.display = "block";
+		text3.style.display = "block";
+		text4.style.display = "block";
+		break;
+	case "5":
+		user1.style.display = "block";
+		user2.style.display = "block";
+		user3.style.display = "block";
+		user4.style.display = "block";
+		user5.style.display = "block";
+
+		text1.style.display = "block";
+		text2.style.display = "block";
+		text3.style.display = "block";
+		text4.style.display = "block";
+		text5.style.display = "block";
+		break;
+	case "6":
+		user1.style.display = "block";
+		user2.style.display = "block";
+		user3.style.display = "block";
+		user4.style.display = "block";
+		user5.style.display = "block";
+		user6.style.display = "block";
+
+		text1.style.display = "block";
+		text2.style.display = "block";
+		text3.style.display = "block";
+		text4.style.display = "block";
+		text5.style.display = "block";
+		text6.style.display = "block";
+		break;
+}
+
 // 키워드로 장소를 검색합니다
-searchPlaces();
+//searchPlaces();
 
 // // ---------------------------키워드 검색 요청 함수 선언-------------------------------
 function searchPlaces() {
@@ -44,7 +138,7 @@ function searchPlaces() {
 	console.log(keyword);
 	// .replace(/^\s+|\s+$/g,'') -> 앞뒤 공백 제거
 	if (!keyword.replace(/^\s+|\s+$/g, "")) {
-		alert("키워드를 입력해주세요!");
+		alert("장소를 검색해주세요!");
 		return false;
 	}
 
@@ -129,7 +223,7 @@ function displayPlaces(places) {
 				if (click >= people) {
 					alert("이미 모든 장소를 선택했습니다.");
 				} else if (click < people) {
-					if (confirm("이 장소로 선택하시겠습니까?") == true) {
+					if (confirm(title + "(으)로 선택하시겠습니까?") == true) {
 						click += 1;
 						var index = markers.indexOf(marker); // 선택된 마커 기존 배열에서 삭제
 						if (index > -1) { // 선택된 마커 기존 배열에서 삭제
@@ -179,7 +273,7 @@ function displayPlaces(places) {
 				if (click >= people) {
 					alert("이미 모든 장소를 선택했습니다.");
 				} else if (click < people) {
-					if (confirm("이 장소로 선택하시겠습니까?") == true) {
+					if (confirm(title + "(으)로 선택하시겠습니까?") == true) {
 						click += 1;
 						var index = markers.indexOf(marker); // 선택된 마커 기존 배열에서 삭제
 						if (index > -1) { // 선택된 마커 기존 배열에서 삭제
@@ -349,71 +443,7 @@ function removeAllChildNods(el) {
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT); //kakao.maps.ControlPosition: 위치 지정
 
-// -----------------------최종 인원수 저장 함수---------------------------
-function finalCount() {
-	// 클릭 버튼 누르면 최종 인원수 저장
 
-	// .value 는 div 에 적용 x (input 태그에 적용 o)
-	// HTML 태그 값 가져오려면 .innerHTML 로 가져오는 게 편함
-	var people = document.getElementById("result").innerHTML;
-
-	// 로컬 스토리지에 최종 인원수 저장 (키-값)
-	localStorage.setItem("people", people);
-}
-
-// 최종 인원수 가져오기 (home -> map)
-people = localStorage.getItem("people");
-document.getElementById("display").innerHTML = people;
-
-// 브라우저에 결과를 출력할 곳의 element 가져오기
-const displayElement = document.getElementById("display");
-console.log(displayElement.innerHTML);
-
-// ---------------------------------------
-// 인원수만큼 장소 선택창 띄우기
-var user3 = document.getElementById("user3");
-var user4 = document.getElementById("user4");
-var user5 = document.getElementById("user5");
-var user6 = document.getElementById("user6");
-
-var text3 = document.getElementById("text3");
-var text4 = document.getElementById("text4");
-var text5 = document.getElementById("text5");
-var text6 = document.getElementById("text6");
-
-switch (people) {
-	case "2":
-		user3.style.display = "none";
-		user4.style.display = "none";
-		user5.style.display = "none";
-		user6.style.display = "none";
-
-		text3.style.display = "none";
-		text4.style.display = "none";
-		text5.style.display = "none";
-		text6.style.display = "none";
-		break;
-	case "3":
-		user4.style.display = "none";
-		user5.style.display = "none";
-		user6.style.display = "none";
-
-		text4.style.display = "none";
-		text5.style.display = "none";
-		text6.style.display = "none";
-		break;
-	case "4":
-		user5.style.display = "none";
-		user6.style.display = "none";
-
-		text5.style.display = "none";
-		text6.style.display = "none";
-		break;
-	case "5":
-		user6.style.display = "none";
-		text6.style.display = "none";
-		break;
-}
 
 //-----------------------중점에 마커 찍기-----------------------
 function centerMarker() {
@@ -467,8 +497,8 @@ function centerMarker() {
 
 				var content = '<div class="bAddr">' +
 								'<span class="centerLatlng_title">중간 지점 법정동 주소정보</span>' + 
-								detailAddr + 
-							'</div>';
+								detailAddr + '</div>' +
+							'<h5>안내: 중간 지점에 건물이 없는 경우 도로명주소가 없어서 지번주소만 표시됩니다.</h5>';
 
 				var resultDiv = document.getElementById('centerLatlng'); 
 					resultDiv.innerHTML = content;
@@ -494,4 +524,3 @@ function categoryBtn(){
 		target.disabled = true;
 	}
 }
-

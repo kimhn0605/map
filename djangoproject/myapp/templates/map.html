@@ -19,7 +19,7 @@
                 <div class="option">
                     <div>
                         <form onsubmit="searchPlaces(); return false;">
-                            <h2> 키워드 : <input type="text" value="" id="keyword" size="20"> </h3>
+                            <h2> 검색 : <input type="text" value="" id="keyword" size="20"> </h3>
                             <button class="btn_1" type="submit">검색하기</button> 
                         </form>
                     </div>
@@ -39,26 +39,24 @@
 
                     <h4 id="text2">유저 2</h4>
                     <li id = "user2"></li>
-
+                    
                     <h4 id="text3">유저 3</h4>
                     <li id = "user3"></li>
-
+                    
                     <h4 id="text4">유저 4</h4>
                     <li id = "user4"></li>
-
+                    
                     <h4 id="text5">유저 5</h4>
                     <li id = "user5"></li>
-
+                    
                     <h4 id="text6">유저 6</h4>
                     <li id = "user6"></li>
                 </ul>
             </div>
-            <button class="button" type="button" onclick="Personalmarker()">직접찍기</button>
             <button class="button" type="submit" onclick="centerMarker()">중간지점찾기</button>
             <button id="categoryBtn" class="button" type="submit" onclick="location.href='http://127.0.0.1:8000/center/'" disabled>주변찾기</button>
             
             <div id="centerLatlng"></div>
-            <h5>안내: 중간 지점에 건물이 없는 경우 도로명주소가 없어서 지번주소만 표시됩니다.</h5>
 
         </div>
     

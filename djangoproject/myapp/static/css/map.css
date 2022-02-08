@@ -236,6 +236,8 @@ h1 {
 	color: rgb(45, 82, 96);
 	margin-bottom: 10px;
 	text-align: center;
+
+	display: none;
 }
 
 #user1,
@@ -249,4 +251,6 @@ h1 {
 	font-weight: bolder;
 	font-size: larger;
 	color: rgb(45, 82, 96);
+
+	display: none;
 }
