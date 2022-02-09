@@ -1,3 +1,8 @@
+body{
+	width: 85%;
+	margin: auto;
+}
+
 * {
 	/* 기본값 설정 */
 	list-style: none;
@@ -15,11 +20,6 @@
 	left: 5px;
 	top: 5px;
 	align-items: center;
-}
-
-.centerLatlng_title {
-	font-weight:bold;
-	display:block;
 }
 
 h1 {
@@ -253,4 +253,64 @@ h1 {
 	color: rgb(45, 82, 96);
 
 	display: none;
+}
+
+/*-------------------------중점 찾기, 주변찾기 버튼------------------------*/
+.findbutton_wrap {
+	height: 100%;
+	width: 340px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.findbutton {
+	margin: auto;
+	width: 140px;
+	height: 45px;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: rgb(240, 240, 240);
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+}
+
+.findbutton:hover {
+	background-color: rgb(177, 215, 255);
+	box-shadow: 0px 15px 20px rgba(46, 162, 229, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+/*--------------------------------주소정보----------------------------------*/
+.address_parent{
+	height: 100%;
+	border-radius: 10px;
+	background-color: rgb(240, 240, 240);
+}
+
+.bAddr{
+	margin: 10px;
+	padding: 10px;
+	text-align: center;
+}
+
+.centerLatlng_title {
+	font-weight:bold;
+	font-size: large;
+	text-align: center;
+	display:block;
+}
+
+.info{
+	margin-bottom: 10px;
+	color: #8a8a8a;
+	text-align: center;
 }

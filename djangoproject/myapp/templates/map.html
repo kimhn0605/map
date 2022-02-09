@@ -10,7 +10,7 @@
     <div class = "mapTitle">
         <h1><a href="../">&#127919; 중간 지점 찾기</a></h1>
     </div>
-   
+
     <!-- 지도 생성 -->
     <span>
         <div id="map" style="top : 30px; width:65%; height:80vh; left : 130px; "></div>
@@ -53,14 +53,16 @@
                     <li id = "user6"></li>
                 </ul>
             </div>
-            <button class="button" type="submit" onclick="centerMarker()">중간지점찾기</button>
-            <button id="categoryBtn" class="button" type="submit" onclick="location.href='http://127.0.0.1:8000/center/'" disabled>주변찾기</button>
-            
-            <div id="centerLatlng"></div>
-
+            <div class="findbutton_wrap"> 
+            <button class="findbutton" type="submit" onclick="centerMarker()">중간지점찾기</button>
+            <button id="categoryBtn" class="findbutton" type="submit" onclick="location.href='http://127.0.0.1:8000/center/'" disabled>주변찾기</button>
+            </div>
         </div>
-    
     </div>
+    <div class="address_parent">
+        <div id="centerLatlng"></div>
+    </div>
+    
     <span id="display" style="display: none;">0</span>
 
     </div>

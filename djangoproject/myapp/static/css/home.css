@@ -1,0 +1,22 @@
+body{
+	width: 85%;
+	margin: auto;
+}
+
+* {
+	/* 기본값 설정 */
+	list-style: none;
+	text-decoration: none;
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+	color: #000;
+	font-family: "Noto Sans KR", sans-serif; /* 구글 폰트 사용 */
+}
+
+h1 {
+	display: inline;
+}
+.mapTitle {
+	padding: 30px;
+}

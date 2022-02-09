@@ -496,9 +496,9 @@ function centerMarker() {
 				detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
 
 				var content = '<div class="bAddr">' +
-								'<span class="centerLatlng_title">중간 지점 법정동 주소정보</span>' + 
-								detailAddr + '</div>' +
-							'<h5>안내: 중간 지점에 건물이 없는 경우 도로명주소가 없어서 지번주소만 표시됩니다.</h5>';
+								'<div class="centerLatlng_title">중간 지점 법정동 주소정보</div>' + 
+								'<div class="info">*중간 지점에 건물이 없는 경우 도로명주소가 없어서 지번주소만 표시됩니다.</div>' +
+								detailAddr + '</div>';
 
 				var resultDiv = document.getElementById('centerLatlng'); 
 					resultDiv.innerHTML = content;
