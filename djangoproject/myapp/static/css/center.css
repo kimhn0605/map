@@ -20,6 +20,9 @@ h1 {
 .mapTitle {
 	padding: 30px;
 }
+.mapTitle > h1 > a{
+	cursor: pointer;
+}
 
 .map_wrap, .map_wrap * {
 	margin:0; 
@@ -196,6 +199,11 @@ egory li:hover {
 	margin-bottom: 10px;
 	color: #8a8a8a;
 	text-align: center;
+}
+
+.jibun_address,
+.doro_address{
+	font-weight: bold;
 }
 
 /*------------------------------카카오톡 공유---------------------------------*/

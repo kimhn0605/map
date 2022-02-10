@@ -29,6 +29,10 @@ h1 {
 	padding: 30px;
 }
 
+.mapTitle > h1 > a{
+	cursor: pointer;
+}
+
 .search_wrap{
 	display: flex;
 	flex-direction: row;
@@ -76,10 +80,23 @@ h1 {
 	width: 100px;
 	margin-bottom: 10px;
 	background-color: rgb(173, 216, 230, 0.8);
-	border: 1px solid rgb(173, 216, 230, 0.8);
-	border-radius: 6px;
+	border: none;
+	border-radius: 45px;
 	color: rgba(0, 0, 0, 0.8);
 	font-weight: bold;
+
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	transition: all 0.3s ease 0s;
+	outline: none;
+}
+
+.btn_1:hover {
+	background-color: rgba(141, 141, 141, 0.8);
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .bg_white {
@@ -101,6 +118,7 @@ h1 {
 	margin: 3px 0;
 }
 #menu_wrap .option {
+	padding-top: 10px;
 	text-align: center;
 }
 #menu_wrap .option p {
@@ -130,7 +148,7 @@ h1 {
 	white-space: nowrap;
 }
 #placesList .item .info {
-	padding: 10px 0 10px 55px;
+	padding: 10px 0 10px 10px;
 }
 #placesList .info .gray {
 	color: #8a8a8a;
@@ -198,6 +216,7 @@ h1 {
 	background-position: 0 -654px;
 }
 #pagination {
+	font-size: 14px;
 	margin: 10px auto;
 	text-align: center;
 }
@@ -206,9 +225,10 @@ h1 {
 	margin-right: 10px;
 }
 #pagination .on {
+	font-size: 16px;
 	font-weight: bold;
 	cursor: default;
-	color: #777;
+	color: #888;
 }
 .grand_parent {
 	/*position: absolute;*/
@@ -253,6 +273,7 @@ h1 {
 #user4,
 #user5,
 #user6 {
+	margin: 10px auto;
 	padding: 15px;
 	text-align: center;
 	font-weight: bolder;
@@ -262,8 +283,10 @@ h1 {
 	display: none;
 }
 
-/*-------------------------중점 찾기, 주변찾기 버튼------------------------*/
-.findbutton_wrap {
+/*-------------------------중점 찾기, 주변찾기, 인원 재설정 버튼------------------------*/
+.findbutton_wrap,
+.changebutton_wrap {
+	margin: 20px;
 	height: 100%;
 	width: 340px;
 	display: flex;
@@ -289,7 +312,26 @@ h1 {
 	outline: none;
 }
 
-.findbutton:hover {
+.resetPeopleBtn {
+	margin: auto;
+	width: 315px;
+	height: 45px;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: rgb(225, 225, 225);
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+}
+
+.findbutton:hover,
+.resetPeopleBtn:hover {
 	background-color: rgb(177, 215, 255);
 	box-shadow: 0px 15px 20px rgba(46, 162, 229, 0.4);
 	color: #fff;
@@ -318,8 +360,13 @@ h1 {
 	display:block;
 }
 
-.info{
+.address_info{
 	margin-bottom: 10px;
 	color: #8a8a8a;
 	text-align: center;
+}
+
+.jibun_address,
+.doro_address{
+	font-weight: bold;
 }

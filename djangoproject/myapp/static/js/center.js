@@ -250,6 +250,7 @@ function changeCategoryClass(el) {
 
 // ------------------------다시하기 눌렀을 때 Home으로 돌아가는 함수 선언-------------------------
 function gobackHome(){
+	localStorage.clear(); // 다시 적용될 수 있도록 localstorage 값 모두 삭제
 	location.replace('/');
 }
 
@@ -258,8 +259,8 @@ var geocoder = new kakao.maps.services.Geocoder();
 
 searchDetailAddrFromCoords(new kakao.maps.LatLng(ma, la), function(result, status) {
 	if (status === kakao.maps.services.Status.OK) {
-		var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
-		detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+		var detailAddr = !!result[0].road_address ? '<div><span class="doro_address">도로명주소</span> : ' + result[0].road_address.address_name + '</div>' : '';
+		detailAddr += '<div><span class="jibun_address">지번 주소</span> : ' + result[0].address.address_name + '</div>';
 		
 		var content = '<div class="bAddr">' +
 						'<div class="centerLatlng_title">중간 지점 법정동 주소정보</div>' + 

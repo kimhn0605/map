@@ -8,7 +8,7 @@ function count(type) {
 	// 화면에 출력된 값은 문자열이므로 parseInt() 를 통해 숫자로 변환 후 연산 진행
 	if (type === "plus") {
 		if (number > 5) {
-			alert("6명이 최대입니다");
+			alert("6명이 최대입니다.");
 		} else {
 			number = parseInt(number) + 1;
 		}

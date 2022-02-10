@@ -128,10 +128,7 @@ switch (people) {
 		break;
 }
 
-// 키워드로 장소를 검색합니다
-//searchPlaces();
-
-// // ---------------------------키워드 검색 요청 함수 선언-------------------------------
+//---------------------------키워드 검색 요청 함수 선언-------------------------------
 function searchPlaces() {
 	// 검색창에 입력된 글자 가져오기
 	var keyword = document.getElementById("keyword").value;
@@ -143,7 +140,9 @@ function searchPlaces() {
 	}
 
 	// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-	ps.keywordSearch(keyword, placesSearchCB);
+	ps.keywordSearch(keyword, placesSearchCB, {
+        size:10, //한 페이지에 보여질 개수. 기본값은 15, 1~15까지 가능
+	});
 }
 
 // -----------------------장소검색이 완료됐을 때 호출되는 콜백함수 선언--------------------------
@@ -224,32 +223,34 @@ function displayPlaces(places) {
 					alert("이미 모든 장소를 선택했습니다.");
 				} else if (click < people) {
 					if (confirm(title + "(으)로 선택하시겠습니까?") == true) {
-						click += 1;
-						var index = markers.indexOf(marker); // 선택된 마커 기존 배열에서 삭제
-						if (index > -1) { // 선택된 마커 기존 배열에서 삭제
-							markers.splice(index, 1);
+						if(Object.keys(latlng).includes(title)){ //이미 선택된 장소가 또 눌렸을 때
+							alert("이미 선택된 장소입니다.")
 						}
-						selected_markers.push(marker); // 선택된 마커를 새로운 배열에 추가
-						latlng[title] = marker.getPosition();
-						marker.setImage(clickImage);
+						else{
+							click += 1;
+							var index = markers.indexOf(marker); // 선택된 마커 기존 배열에서 삭제
+							if (index > -1) { // 선택된 마커 기존 배열에서 삭제
+								markers.splice(index, 1);
+							}
+							selected_markers.push(marker); // 선택된 마커를 새로운 배열에 추가
+							latlng[title] = marker.getPosition();
+							marker.setImage(clickImage);
 
-						// 클릭한 마커 위치 각 유저별 화면에 출력
-						if (user1Element.innerText === "") {
-							user1Element.innerHTML = Object.keys(latlng)[0];
-						} else if (user2Element.innerText === "") {
-							user2Element.innerHTML = Object.keys(latlng)[1];
-						} else if (user3Element.innerText === "") {
-							user3Element.innerHTML = Object.keys(latlng)[2];
-						} else if (user4Element.innerText === "") {
-							user4Element.innerHTML = Object.keys(latlng)[3];
-						} else if (user5Element.innerText === "") {
-							user5Element.innerHTML = Object.keys(latlng)[4];
-						} else if (user6Element.innerText === "") {
-							user6Element.innerHTML = Object.keys(latlng)[5];
+							// 클릭한 마커 위치 각 유저별 화면에 출력
+							if (user1Element.innerText === "") {
+								user1Element.innerHTML = Object.keys(latlng)[0];
+							} else if (user2Element.innerText === "") {
+								user2Element.innerHTML = Object.keys(latlng)[1];
+							} else if (user3Element.innerText === "") {
+								user3Element.innerHTML = Object.keys(latlng)[2];
+							} else if (user4Element.innerText === "") {
+								user4Element.innerHTML = Object.keys(latlng)[3];
+							} else if (user5Element.innerText === "") {
+								user5Element.innerHTML = Object.keys(latlng)[4];
+							} else if (user6Element.innerText === "") {
+								user6Element.innerHTML = Object.keys(latlng)[5];
+							}
 						}
-
-						//모든 장소가 선택됐을 때 주변 찾기 버튼 활성화
-						categoryBtn();
 					}
 				}
 				console.log("총 개수", Object.keys(latlng).length);
@@ -274,32 +275,34 @@ function displayPlaces(places) {
 					alert("이미 모든 장소를 선택했습니다.");
 				} else if (click < people) {
 					if (confirm(title + "(으)로 선택하시겠습니까?") == true) {
-						click += 1;
-						var index = markers.indexOf(marker); // 선택된 마커 기존 배열에서 삭제
-						if (index > -1) { // 선택된 마커 기존 배열에서 삭제
-							markers.splice(index, 1);
+						if(Object.keys(latlng).includes(title)){ //이미 선택된 장소가 또 눌렸을 때
+							alert("이미 선택된 장소입니다.")
 						}
-						selected_markers.push(marker); // 선택된 마커를 새로운 배열에 추가
-						latlng[title] = marker.getPosition();
-						marker.setImage(clickImage);
+						else{
+							click += 1;
+							var index = markers.indexOf(marker); // 선택된 마커 기존 배열에서 삭제
+							if (index > -1) { // 선택된 마커 기존 배열에서 삭제
+								markers.splice(index, 1);
+							}
+							selected_markers.push(marker); // 선택된 마커를 새로운 배열에 추가
+							latlng[title] = marker.getPosition();
+							marker.setImage(clickImage);
 
-						// 클릭한 마커 위치 각 유저별 화면에 출력
-						if (user1Element.innerText === "") {
-							user1Element.innerHTML = Object.keys(latlng)[0];
-						} else if (user2Element.innerText === "") {
-							user2Element.innerHTML = Object.keys(latlng)[1];
-						} else if (user3Element.innerText === "") {
-							user3Element.innerHTML = Object.keys(latlng)[2];
-						} else if (user4Element.innerText === "") {
-							user4Element.innerHTML = Object.keys(latlng)[3];
-						} else if (user5Element.innerText === "") {
-							user5Element.innerHTML = Object.keys(latlng)[4];
-						} else if (user6Element.innerText === "") {
-							user6Element.innerHTML = Object.keys(latlng)[5];
+							// 클릭한 마커 위치 각 유저별 화면에 출력
+							if (user1Element.innerText === "") {
+								user1Element.innerHTML = Object.keys(latlng)[0];
+							} else if (user2Element.innerText === "") {
+								user2Element.innerHTML = Object.keys(latlng)[1];
+							} else if (user3Element.innerText === "") {
+								user3Element.innerHTML = Object.keys(latlng)[2];
+							} else if (user4Element.innerText === "") {
+								user4Element.innerHTML = Object.keys(latlng)[3];
+							} else if (user5Element.innerText === "") {
+								user5Element.innerHTML = Object.keys(latlng)[4];
+							} else if (user6Element.innerText === "") {
+								user6Element.innerHTML = Object.keys(latlng)[5];
+							}
 						}
-
-						//모든 장소가 선택됐을 때 주변 찾기 버튼 활성화
-						categoryBtn();
 					}
 				}
 				console.log("총 개수", Object.keys(latlng).length);
@@ -337,9 +340,9 @@ function getListItem(index, places) {
 			(index + 1) +
 			'"></span>' +
 			'<div class="info">' +
-			"   <h5>" +
+			"   <h4>" +
 			places.place_name +
-			"</h5>";
+			"</h4>";
 
 	if (places.road_address_name) {
 		itemStr +=
@@ -492,13 +495,10 @@ function centerMarker() {
 
 		searchDetailAddrFromCoords(markerPosition, function(result, status) {
 			if (status === kakao.maps.services.Status.OK) {
-				var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
-				detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+				var detailAddr = !!result[0].road_address ? '<div><span class="doro_address">도로명주소</span> : ' + result[0].road_address.address_name + '</div>' : '';
+				detailAddr += '<div><span class="jibun_address">지번 주소</span> : ' + result[0].address.address_name + '</div>';
 
-				var content = '<div class="bAddr">' +
-								'<div class="centerLatlng_title">중간 지점 법정동 주소정보</div>' + 
-								'<div class="info">*중간 지점에 건물이 없는 경우 도로명주소가 없어서 지번주소만 표시됩니다.</div>' +
-								detailAddr + '</div>';
+				var content = detailAddr;
 
 				var resultDiv = document.getElementById('centerLatlng'); 
 					resultDiv.innerHTML = content;
@@ -518,9 +518,15 @@ function centerMarker() {
 function categoryBtn(){
 	var target = document.getElementById('categoryBtn');
 	if (click >= people) {
-		target.disabled = false;
+		location.replace('http://127.0.0.1:8000/center/');
 	}
 	else{
-		target.disabled = true;
+		alert("모든 장소를 입력해주세요.");
 	}
+}
+
+// -----------------------인원재설정 버튼 함수 선언-------------------------
+function resetPeople(){
+	localStorage.clear(); // 다시 적용될 수 있도록 localstorage 값 모두 삭제
+	location.replace('/');
 }

@@ -3,20 +3,71 @@ body{
 	margin: auto;
 }
 
-* {
-	/* 기본값 설정 */
-	list-style: none;
-	text-decoration: none;
-	border-collapse: collapse;
-	margin: 0px;
-	padding: 0px;
-	color: #000;
-	font-family: "Noto Sans KR", sans-serif; /* 구글 폰트 사용 */
+.card {
+    margin: 5px 15% 10% 5px;
+    top: 30px;
+    left: 35%;
+    text-align: center;
+    border: 2px solid black;
 }
 
-h1 {
+#result {
 	display: inline;
+    font-weight: bold;
+    font-size: xx-large;
+    color: rgb(0, 140, 255);
 }
-.mapTitle {
-	padding: 30px;
+
+.plus,
+.minus {
+	margin: auto 30px;
+	display: inline;
+	border: none;
+	width: 35px;
+	height: 35px;
+
+	transition: all 0.2s linear;
+}
+.plus:hover img,
+.minus:hover img {
+	transform: scale(1.4);
+}
+
+.card-title > form > input{
+	width: 30px;
+	height: 30px;
+	margin: auto;
+}
+
+.savebutton_wrap {
+	margin: 20px auto;
+	height: 100%;
+	width: 340px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.savebutton{
+	font-weight: bolder;
+	width: 315px;
+	height: 45px;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	color: #000;
+	background-color: rgb(225, 225, 225);
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+}
+
+.savebutton:hover{
+	background-color: rgb(177, 215, 255);
+	box-shadow: 0px 15px 20px rgba(46, 162, 229, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
 }
