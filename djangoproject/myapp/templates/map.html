@@ -12,8 +12,10 @@
     </div>
 
     <!-- 지도 생성 -->
-    <span>
-        <div id="map" style="top : 30px; width:65%; height:80vh; left : 130px; "></div>
+    <span class="search_wrap">
+        
+        
+        
         <div>
             <div id="menu_wrap" class="bg_white">
                 <div class="option">
@@ -29,38 +31,47 @@
                 <div id="pagination"></div>
             </div>
         </div>
-    </span>
-    <div class = "grand_parent">
-        <div class = "parent">
-            <div class = "child">
-                <ul>
-                    <h4 id="text1">유저 1</h4>
-                    <li id = "user1"></li>
-
-                    <h4 id="text2">유저 2</h4>
-                    <li id = "user2"></li>
-                    
-                    <h4 id="text3">유저 3</h4>
-                    <li id = "user3"></li>
-                    
-                    <h4 id="text4">유저 4</h4>
-                    <li id = "user4"></li>
-                    
-                    <h4 id="text5">유저 5</h4>
-                    <li id = "user5"></li>
-                    
-                    <h4 id="text6">유저 6</h4>
-                    <li id = "user6"></li>
-                </ul>
-            </div>
-            <div class="findbutton_wrap"> 
-            <button class="findbutton" type="submit" onclick="centerMarker()">중간지점찾기</button>
-            <button id="categoryBtn" class="findbutton" type="submit" onclick="location.href='http://127.0.0.1:8000/center/'" disabled>주변찾기</button>
+        <div id="map" style="width:100%; height:800px; margin: 0px 20px; border-radius: 10px;"></div>
+        <div class = "grand_parent">
+            <div class = "parent">
+                <div class = "child">
+                    <ul>
+                        <h4 id="text1">유저 1</h4>
+                        <li id = "user1"></li>
+    
+                        <h4 id="text2">유저 2</h4>
+                        <li id = "user2"></li>
+                        
+                        <h4 id="text3">유저 3</h4>
+                        <li id = "user3"></li>
+                        
+                        <h4 id="text4">유저 4</h4>
+                        <li id = "user4"></li>
+                        
+                        <h4 id="text5">유저 5</h4>
+                        <li id = "user5"></li>
+                        
+                        <h4 id="text6">유저 6</h4>
+                        <li id = "user6"></li>
+                    </ul>
+                    <div class="findbutton_wrap"> 
+                        <button class="findbutton" type="submit" onclick="centerMarker()">중간지점찾기</button>
+                        <button id="categoryBtn" class="findbutton" type="submit" onclick="location.href='http://127.0.0.1:8000/center/'" disabled>주변찾기</button>
+                    </div>
+                </div>
+                
             </div>
         </div>
-    </div>
+    </span>
+    
     <div class="address_parent">
-        <div id="centerLatlng"></div>
+        <div id="centerLatlng">
+            <div class="bAddr">
+                <div class="centerLatlng_title">중간 지점 법정동 주소정보</div>
+                <div class="info">*중간 지점에 건물이 없는 경우 도로명주소가 없어서 지번주소만 표시됩니다.</div>
+                <div id="centerLatlng"></div>
+            </div>
+        </div>
     </div>
     
     <span id="display" style="display: none;">0</span>
